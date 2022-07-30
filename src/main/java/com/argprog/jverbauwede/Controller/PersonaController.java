@@ -49,7 +49,7 @@ public class PersonaController {
         Persona persona = iPersonaService.getOne(id).get();
         return new ResponseEntity(persona, HttpStatus.OK);
     }
-       
+    @PreAuthorize("hasAuthority('ROL_ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id")long id, @RequestBody DTOPersona personaDto){
         if(!iPersonaService.existsById(id))
@@ -88,12 +88,12 @@ public class PersonaController {
         return new ResponseEntity(new Mensaje("Nueva Persona Agregada Correctamente"), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROL_ADMIN')")
     @DeleteMapping("/borrar/{id}")
         public String deletePersona(@PathVariable Long id){
         iPersonaService.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
-    
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public Object handleError(HttpServletRequest req, Exception ex) {
