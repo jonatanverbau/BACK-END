@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface IPersonaRep extends JpaRepository<Persona, Long> {
-    public Optional<Persona> getByCorreo (String correo);
+    public Optional<Persona> findByCorreo (String correo);
     
     public boolean existsByCorreo(String correo);
 }

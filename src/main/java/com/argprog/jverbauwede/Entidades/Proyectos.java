@@ -24,16 +24,17 @@ public class Proyectos implements Serializable {
     private String nombreProy;
     private int anioProy;
     private String descProy;
-    private String imgProy;
+    private String urlProy;
+    private String img;
 
     public Proyectos() {
     }
 
-    public Proyectos(String nombreProy, int anioProy, String descProy, String imgProy) {
+    public Proyectos(String nombreProy, int anioProy, String descProy, String urlProy, String img) {
         this.nombreProy = nombreProy;
         this.anioProy = anioProy;
         this.descProy = descProy;
-        this.imgProy = imgProy;
+        this.img = img;
     }
 
     public String getNombreProy() {
@@ -60,12 +61,20 @@ public class Proyectos implements Serializable {
         this.descProy = descProy;
     }
 
-    public String getImgProy() {
-        return imgProy;
+    public String getUrlProy() {
+        return urlProy;
     }
 
-    public void setImgProy(String imgProy) {
-        this.imgProy = imgProy;
+    public void setUrlProy(String urlProy) {
+        this.urlProy = urlProy;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
     
     public Long getId() {

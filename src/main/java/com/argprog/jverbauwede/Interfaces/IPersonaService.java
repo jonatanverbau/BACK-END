@@ -13,18 +13,18 @@ import java.util.Optional;
  * @author Jonatan
  */
 public interface IPersonaService {
-    //traer
-    public List<Persona> getPersona();
+    //traer listado
+    public List<Persona> list();
+    //traer 1
+    public Optional<Persona> getOne(long id);
+    //buscar por correo
+    public Optional<Persona> getByCorreo (String correo);
     //guardar
     public void save(Persona persona);
     //borrar
-    public void deletePersona (Long id);
-    //buscar por id
-    public Optional<Persona> getOne(Long id);
-    //buscar por correo
-    public Optional<Persona> getByCorreo (String correo);
+    public void delete(long id);
+    //si existe por id
+    public boolean existById(long id);
     //si existe por correo
     public boolean existsByCorreo(String correo);
-    //si existe por id
-    public boolean existsById(Long id);
 }

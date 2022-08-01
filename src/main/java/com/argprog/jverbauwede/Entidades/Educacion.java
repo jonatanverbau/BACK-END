@@ -24,15 +24,17 @@ public class Educacion implements Serializable {
     private String nombreEdu;
     private String lugarEdu;
     private int anioEdu;
+    private String img;
     private String descEdu;
 
     public Educacion() {
     }
 
-    public Educacion(String nombreEdu, String lugarEdu, int anioEdu, String descEdu) {
+    public Educacion(String nombreEdu, String lugarEdu, int anioEdu, String img, String descEdu) {
         this.nombreEdu = nombreEdu;
         this.lugarEdu = lugarEdu;
         this.anioEdu = anioEdu;
+        this.img = img;
         this.descEdu = descEdu;
     }
 
@@ -74,6 +76,14 @@ public class Educacion implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     @Override

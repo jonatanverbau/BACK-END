@@ -23,15 +23,15 @@ public class Skills implements Serializable {
     private Long id;
     private String nombreSkill;
     private int nivelSkill;
-    private String imgSkill;
+    private String img;
     
     public Skills() {
     }
     
-    public Skills(String nombreSkill, int nivelSkill, String imgSkill) {
+    public Skills(String nombreSkill, int nivelSkill, String img) {
         this.nombreSkill = nombreSkill;
         this.nivelSkill = nivelSkill;
-        this.imgSkill = imgSkill;
+        this.img = img;
     }
 
     public String getNombreSkill() {
@@ -50,12 +50,12 @@ public class Skills implements Serializable {
         this.nivelSkill = nivelSkill;
     }
 
-    public String getImgSkill() {
-        return imgSkill;
+    public String getImg() {
+        return img;
     }
 
-    public void setImgSkill(String imgSkill) {
-        this.imgSkill = imgSkill;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public Long getId() {

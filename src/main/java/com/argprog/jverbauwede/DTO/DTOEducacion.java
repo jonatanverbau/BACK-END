@@ -18,15 +18,17 @@ public class DTOEducacion {
     private String lugarEdu;
     @NotBlank
     private int anioEdu;
+    private String img;
     private String descEdu;
 
     public DTOEducacion() {
     }
 
-    public DTOEducacion(String nombreEdu, String lugarEdu, int anioEdu, String descEdu) {
+    public DTOEducacion(String nombreEdu, String lugarEdu, int anioEdu, String img, String descEdu) {
         this.nombreEdu = nombreEdu;
         this.lugarEdu = lugarEdu;
         this.anioEdu = anioEdu;
+        this.img = img;
         this.descEdu = descEdu;
     }
 
@@ -60,6 +62,14 @@ public class DTOEducacion {
 
     public void setAnioEdu(int anioEdu) {
         this.anioEdu = anioEdu;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
     
 }

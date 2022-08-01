@@ -29,12 +29,12 @@ public class ImpEducacionService implements IEducacionService{
     }
 
     @Override
-    public void saveEducacion(Educacion educacion) {
+    public void save(Educacion educacion) {
         iEducacionRep.save(educacion);
     }
     
     @Override
-    public void deleteEducacion(Long id) {
+    public void delete(Long id) {
         iEducacionRep.deleteById(id);
     }
 

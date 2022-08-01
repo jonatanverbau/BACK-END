@@ -9,6 +9,7 @@ import com.argprog.jverbauwede.Interfaces.IPersonaService;
 import com.argprog.jverbauwede.Repos.IPersonaRep;
 import java.util.List;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,41 +18,44 @@ import org.springframework.stereotype.Service;
  * @author Jonatan
  */
 @Service
+@Transactional
 public class ImpPersonaService implements IPersonaService{
-    @Autowired IPersonaRep ipersonaRep;
-    
+    @Autowired 
+    IPersonaRep iPersonaRep;
+
     @Override
-    public List<Persona> getPersona() {
-        return ipersonaRep.findAll();
+    public List<Persona> list() {
+        return iPersonaRep.findAll();
+    }
+
+    @Override
+    public Optional<Persona> getOne(long id){
+        return iPersonaRep.findById(id);
+    }
+
+    @Override
+    public Optional<Persona> getByCorreo(String correo) {
+        return iPersonaRep.findByCorreo(correo);
     }
 
     @Override
     public void save(Persona persona) {
-        ipersonaRep.save(persona);
+        iPersonaRep.save(persona);
     }
 
     @Override
-    public void deletePersona(Long id) {
-        ipersonaRep.deleteById(id);
+    public void delete(long id) {
+        iPersonaRep.deleteById(id);
     }
 
     @Override
-    public Optional<Persona> getOne(Long id) {
-        return ipersonaRep.findById(id);
+    public boolean existById(long id) {
+        return iPersonaRep.existsById(id);
     }
-    
+
     @Override
-    public Optional<Persona> getByCorreo(String correo) {
-        return ipersonaRep.getByCorreo(correo);
+    public boolean existsByCorreo(String correo) {
+        return iPersonaRep.existsByCorreo(correo);
     }
-    
-    @Override
-    public boolean existsById(Long id){
-        return ipersonaRep.existsById(id);
-    }
-    
-    @Override
-    public boolean existsByCorreo(String nombre){
-        return ipersonaRep.existsByCorreo(nombre); 
-    }
+
 }

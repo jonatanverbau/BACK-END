@@ -18,9 +18,9 @@ public interface IEducacionService {
     //traer uno
     public Optional<Educacion> getOne(Long id);
     //guardar
-    public void saveEducacion(Educacion educacion);
+    public void save(Educacion educacion);
     //borrar
-    public void deleteEducacion (Long id);
+    public void delete(Long id);
     //buscar por nombre
     public Optional<Educacion> findByNombreEdu (String nombreEdu);
     //buscar por id

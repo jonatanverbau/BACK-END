@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
  * @author Jonatan
  */
 @Repository
-public interface ISkillsRepo extends JpaRepository<Skills, Long> {
+public interface ISkillsRep extends JpaRepository<Skills, Long> {
     public Optional<Skills> findByNombreSkill (String nombreSkill);
     
     public boolean existsByNombreSkill(String nombreSkill);    

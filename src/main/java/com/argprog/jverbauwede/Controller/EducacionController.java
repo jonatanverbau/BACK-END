@@ -23,14 +23,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 /**
  *
  * @author Jonatan
  */
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EducacionController {
     @Autowired
     IEducacionService iEducacionService;
@@ -54,7 +53,7 @@ public class EducacionController {
         if(!iEducacionService.existsById(id)){
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        iEducacionService.deleteEducacion(id);
+        iEducacionService.delete(id);
         return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
     }
     
@@ -64,8 +63,8 @@ public class EducacionController {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         if(iEducacionService.existsByNombreEdu(dtoeducacion.getNombreEdu()))
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
-        Educacion educacion = new Educacion(dtoeducacion.getNombreEdu(), dtoeducacion.getLugarEdu(), dtoeducacion.getAnioEdu(), dtoeducacion.getDescEdu());
-        iEducacionService.saveEducacion(educacion);
+        Educacion educacion = new Educacion(dtoeducacion.getNombreEdu(), dtoeducacion.getLugarEdu(), dtoeducacion.getAnioEdu(),dtoeducacion.getImg(), dtoeducacion.getDescEdu());
+        iEducacionService.save(educacion);
         return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
                 
     }
@@ -85,9 +84,12 @@ public class EducacionController {
         Educacion educacion = iEducacionService.getOne(id).get();
         
         educacion.setNombreEdu(dtoeducacion.getNombreEdu());
+        educacion.setLugarEdu(dtoeducacion.getLugarEdu());
+        educacion.setAnioEdu(dtoeducacion.getAnioEdu());
+        educacion.setImg(dtoeducacion.getImg());
         educacion.setDescEdu(dtoeducacion.getDescEdu());
         
-        iEducacionService.saveEducacion(educacion);
+        iEducacionService.save(educacion);
         
         return new ResponseEntity(new Mensaje("Educacion actualizada"), HttpStatus.OK);
     }

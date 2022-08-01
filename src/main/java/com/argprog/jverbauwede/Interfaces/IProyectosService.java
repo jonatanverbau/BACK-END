@@ -6,6 +6,7 @@ package com.argprog.jverbauwede.Interfaces;
 
 import com.argprog.jverbauwede.Entidades.Proyectos;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -14,10 +15,20 @@ import java.util.List;
 public interface IProyectosService {
     //traer
     public List<Proyectos> getProyectos();
+    //traer uno
+    public Optional<Proyectos> getOne(Long id);
     //guardar
-    public void saveProyectos(Proyectos proyectos);
+    public void save(Proyectos proyectos);
     //borrar
-    public void deleteProyectos (Long id);
-    //buscar
-    public Proyectos findProyectos(Long id);    
+    public void delete(Long id);
+    //buscar por nombre
+    public Optional<Proyectos> findByNombreProy (String nombreProy);
+    //buscar por id
+    public Optional<Proyectos> findById (Long id);
+    //si existe por nombre
+    public boolean existsByNombreProy(String nombreProy);
+    //si existe por id
+    public boolean existsById(Long id);
+    //traer por nombre
+    public Optional<Proyectos> getByNombreProy(String nombreProy);
 }

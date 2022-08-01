@@ -6,6 +6,7 @@ package com.argprog.jverbauwede.Interfaces;
 
 import com.argprog.jverbauwede.Entidades.Skills;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -14,10 +15,20 @@ import java.util.List;
 public interface ISkillsService {
     //traer
     public List<Skills> getSkills();
+    //traer uno
+    public Optional<Skills> getOne(Long id);
     //guardar
-    public void saveSkills(Skills skills);
+    public void save(Skills skills);
     //borrar
-    public void deleteSkills (Long id);
-    //buscar
-    public Skills findSkills(Long id);    
+    public void delete(Long id);
+    //buscar por nombre
+    public Optional<Skills> findByNombreSkill (String nombreSkill);
+    //buscar por id
+    public Optional<Skills> findById (Long id);
+    //si existe por nombre
+    public boolean existsByNombreSkill(String nombreSkill);
+    //si existe por id
+    public boolean existsById(Long id);
+    //traer por nombre
+    public Optional<Skills> getByNombreSkill(String nombreSkill);
 }
